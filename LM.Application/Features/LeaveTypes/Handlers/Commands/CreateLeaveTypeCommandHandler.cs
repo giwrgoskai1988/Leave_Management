@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using LM.Application.DTOs.LeaveType.Validators;
+using LM.Application.Exceptions;
 using LM.Application.Features.LeaveTypes.Requests.Commands;
 using LM.Application.Persistence.Contracts;
 using LM.Domain;
@@ -25,7 +26,7 @@ namespace LM.Application.Features.LeaveTypes.Handlers.Commands
 
             if (!validationResult.IsValid)
             {
-                throw new Exception();
+                throw new ValidationException(validationResult);
             }
 
             var leaveType = _mapper.Map<LeaveType>(request.LeaveTypeDto);

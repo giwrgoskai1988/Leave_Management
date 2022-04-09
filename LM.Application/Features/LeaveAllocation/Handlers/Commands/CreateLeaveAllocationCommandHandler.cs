@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using LM.Application.DTOs.LeaveType.Validators;
+using LM.Application.Exceptions;
 using LM.Application.Features.LeaveAllocation.Requests.Commands;
 using LM.Application.Persistence.Contracts;
 using MediatR;
@@ -32,7 +33,7 @@ namespace LM.Application.Features.LeaveAllocation.Handlers.Commands
 
             if (!validationResult.IsValid)
             {
-                throw new Exception();
+                throw new ValidationException(validationResult);
             }
 
             var leaveAllocation = _mapper.Map<LM.Domain.LeaveAllocation>(request.CreateLeaveAllocationDto);

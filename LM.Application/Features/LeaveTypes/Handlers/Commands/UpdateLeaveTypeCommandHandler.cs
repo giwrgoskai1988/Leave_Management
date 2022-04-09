@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
 using LM.Application.DTOs.LeaveType.Validators;
+using LM.Application.Exceptions;
 using LM.Application.Features.LeaveTypes.Requests.Commands;
 using LM.Application.Persistence.Contracts;
 using MediatR;
+
 
 namespace LM.Application.Features.LeaveTypes.Handlers.Commands
 {
@@ -25,7 +27,7 @@ namespace LM.Application.Features.LeaveTypes.Handlers.Commands
 
             if (!validationResult.IsValid)
             {
-                throw new Exception();
+                throw new ValidationException(validationResult);
             }
 
             var leaveType = await _leaveTypeRepository.Get(request.LeaveTypeDto.Id);

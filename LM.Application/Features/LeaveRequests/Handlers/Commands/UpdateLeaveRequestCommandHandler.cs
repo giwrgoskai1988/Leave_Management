@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using LM.Application.DTOs.LeaveRequest.Validators;
+using LM.Application.Exceptions;
 using LM.Application.Features.LeaveRequests.Requests.Commands;
 using LM.Application.Persistence.Contracts;
 using MediatR;
@@ -29,7 +30,7 @@ namespace LM.Application.Features.LeaveRequests.Handlers.Commands
 
             if (!validationResult.IsValid)
             {
-                throw new Exception();
+                throw new ValidationException(validationResult);
             }
 
             var leaveRequest = await _leaveRequestRepository.Get(request.Id);
