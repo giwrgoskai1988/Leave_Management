@@ -1,10 +1,9 @@
-﻿using LM.Application.DTOs.LeaveAllocation;
-using MediatR;
+﻿using MediatR;
 
 namespace LM.Application.Features.LeaveAllocation.Requests.Commands
 {
-    public class UpdateLeaveAllocationCommand : IRequest<Unit>
+    public class DeleteLeaveAllocationCommand : IRequest
     {
-        public UpdateLeaveAllocationDto LeaveAllocationDto { get; set; }
+        public int Id { get; set; }
     }
 }
