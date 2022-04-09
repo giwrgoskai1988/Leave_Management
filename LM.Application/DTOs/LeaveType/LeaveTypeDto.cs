@@ -1,6 +1,6 @@
 ﻿using LM.Application.DTOs.Common;
 
-namespace LM.Application.DTOs
+namespace LM.Application.DTOs.LeaveType
 {
     public class LeaveTypeDto : BaseDto
     {

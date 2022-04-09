@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using LM.Application.DTOs;
+using LM.Application.DTOs.LeaveAllocation;
 using LM.Application.Features.LeaveAllocation.Requests.Queries;
 using LM.Application.Persistence.Contracts;
 using MediatR;

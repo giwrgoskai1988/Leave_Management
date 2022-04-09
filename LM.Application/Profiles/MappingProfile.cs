@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
-using LM.Application.DTOs;
+using LM.Application.DTOs.LeaveAllocation;
 using LM.Application.DTOs.LeaveRequest;
+using LM.Application.DTOs.LeaveType;
 using LM.Domain;
 
 namespace LM.Application.Profiles

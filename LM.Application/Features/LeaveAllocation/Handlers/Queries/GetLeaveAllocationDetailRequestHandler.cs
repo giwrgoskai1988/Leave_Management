@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using LM.Application.DTOs;
+using LM.Application.DTOs.LeaveAllocation;
 using LM.Application.Features.LeaveAllocation.Requests.Queries;
 using LM.Application.Persistence.Contracts;
 using MediatR;
@@ -10,6 +10,7 @@ namespace LM.Application.Features.LeaveAllocation.Handlers.Queries
     {
         private readonly ILeaveAllocationRepository _leaveAllocationRepository;
         private readonly IMapper _mapper;
+
         public GetLeaveAllocationDetailRequestHandler(ILeaveAllocationRepository leaveAllocationRepository, IMapper mapper)
         {
             _leaveAllocationRepository = leaveAllocationRepository;

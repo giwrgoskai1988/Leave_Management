@@ -1,4 +1,4 @@
-﻿using LM.Application.DTOs;
+﻿using LM.Application.DTOs.LeaveType;
 using MediatR;
 
 namespace LM.Application.Features.LeaveTypes.Requests

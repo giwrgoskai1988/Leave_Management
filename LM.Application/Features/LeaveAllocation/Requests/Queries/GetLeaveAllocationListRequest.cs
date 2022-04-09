@@ -1,4 +1,4 @@
-﻿using LM.Application.DTOs;
+﻿using LM.Application.DTOs.LeaveAllocation;
 using MediatR;
 
 namespace LM.Application.Features.LeaveAllocation.Requests.Queries
