@@ -1,7 +1,6 @@
 ﻿using LM.Application;
 using LM.Infrastructure;
 using LM.Persistence;
-using Microsoft.OpenApi.Models;
 
 namespace LM.Api
 {
@@ -22,10 +21,9 @@ namespace LM.Api
 
             services.AddControllers();
 
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "LM.Api", Version = "v1" });
-            });
+            services.AddEndpointsApiExplorer();
+
+            services.AddSwaggerGen();
 
             services.AddCors(c =>
             {
@@ -41,9 +39,10 @@ namespace LM.Api
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "LM.Api v1"));
             }
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "LM.Api v1"));
 
             app.UseHttpsRedirection();
 

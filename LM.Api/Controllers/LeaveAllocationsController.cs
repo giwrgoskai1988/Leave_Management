@@ -22,13 +22,13 @@ namespace LM.Api.Controllers
         [HttpGet]
         public async Task<ActionResult<List<LeaveAllocationDto>>> Get()
         {
-            return Ok(_mediator.Send(new GetLeaveAllocationListRequest()));
+            return Ok(await _mediator.Send(new GetLeaveAllocationListRequest()));
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<LeaveAllocationDto>> Get(int id)
         {
-            return Ok(_mediator.Send(new GetLeaveAllocatioDetailRequest { Id = id }));
+            return Ok(await _mediator.Send(new GetLeaveAllocatioDetailRequest { Id = id }));
         }
 
         [HttpPost]
