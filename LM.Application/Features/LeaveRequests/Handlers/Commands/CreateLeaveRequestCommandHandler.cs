@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using LM.Application.Contracts.Persistence;
+using LM.Application.Contrancts.Infrastructure;
 using LM.Application.DTOs.LeaveRequest.Validators;
 using LM.Application.Features.LeaveRequests.Requests.Commands;
+using LM.Application.Models;
 using LM.Application.Responses;
 using LM.Domain;
 using MediatR;
@@ -12,16 +14,20 @@ namespace LM.Application.Features.LeaveRequests.Handlers.Commands
     {
         private readonly ILeaveRequestRepository _leaveRequestRepository;
         private readonly ILeaveTypeRepository _leaveTypeRepository;
+        private readonly IEmailSender _emailSender;
         private readonly IMapper _mapper;
 
         public CreateLeaveRequestCommandHandler(
             ILeaveRequestRepository leaveRequestRepository,
             ILeaveTypeRepository leaveTypeRepository,
-            IMapper mapper)
+            IMapper mapper,
+            IEmailSender emailSender
+            )
         {
             _leaveRequestRepository = leaveRequestRepository;
             _leaveTypeRepository = leaveTypeRepository;
             _mapper = mapper;
+            _emailSender = emailSender;
         }
 
         public async Task<BaseCommandResponse> Handle(CreateLeaveRequestCommand request, CancellationToken cancellationToken)
@@ -46,6 +52,22 @@ namespace LM.Application.Features.LeaveRequests.Handlers.Commands
             response.Success = true;
             response.Message = "Created Successfully.";
             response.Id = leaveRequest.Id;
+
+            var email = new Email
+            {
+                To = "test@test.com",
+                Body = $"Your leave request for {request.CreateLeaveRequestDto.StartDate:D} to {request.CreateLeaveRequestDto.EndDate:D} has been submitted.",
+                Subject = "Leave Request Submitted"
+            };
+
+            try
+            {
+                await _emailSender.SendEmail(email);
+            }
+            catch (Exception ex)
+            {
+
+            }
 
             return response;
 
