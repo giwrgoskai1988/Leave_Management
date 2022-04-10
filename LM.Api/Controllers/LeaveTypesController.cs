@@ -18,7 +18,7 @@ namespace LM.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<LeaveTypeDto>>> Index()
+        public async Task<ActionResult<List<LeaveTypeDto>>> Get()
         {
             var leaveTypes = await _mediator.Send(new GetLeaveTypeListRequest());
 
