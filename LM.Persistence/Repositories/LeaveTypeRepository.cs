@@ -1,4 +1,4 @@
-﻿using LM.Application.Persistence.Contracts;
+﻿using LM.Application.Contracts.Persistence;
 using LM.Domain;
 
 namespace LM.Persistence.Repositories

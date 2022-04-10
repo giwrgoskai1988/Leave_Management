@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
+using LM.Application.Contracts.Persistence;
 using LM.Application.DTOs.LeaveAllocation;
 using LM.Application.DTOs.LeaveAllocation.Validators;
-using LM.Application.Persistence.Contracts;
 
 namespace LM.Application.DTOs.LeaveType.Validators
 {

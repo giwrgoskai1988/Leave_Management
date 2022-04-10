@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
+using LM.Application.Contracts.Persistence;
 using LM.Application.DTOs.LeaveType.Validators;
 using LM.Application.Exceptions;
 using LM.Application.Features.LeaveAllocation.Requests.Commands;
-using LM.Application.Persistence.Contracts;
 using MediatR;
 
 namespace LM.Application.Features.LeaveAllocation.Handlers.Commands

@@ -2,7 +2,7 @@
 using LM.Application.DTOs.LeaveRequest.Validators;
 using LM.Application.Exceptions;
 using LM.Application.Features.LeaveRequests.Requests.Commands;
-using LM.Application.Persistence.Contracts;
+using LM.Application.Contracts.Persistence;
 using MediatR;
 
 namespace LM.Application.Features.LeaveRequests.Handlers.Commands

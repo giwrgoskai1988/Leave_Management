@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
+using LM.Application.Contracts.Persistence;
 using LM.Application.DTOs.LeaveRequest.Validators;
 using LM.Application.Features.LeaveRequests.Requests.Commands;
-using LM.Application.Persistence.Contracts;
 using LM.Application.Responses;
 using LM.Domain;
 using MediatR;

@@ -1,6 +1,6 @@
-﻿using LM.Application.Exceptions;
+﻿using LM.Application.Contracts.Persistence;
+using LM.Application.Exceptions;
 using LM.Application.Features.LeaveRequests.Requests.Commands;
-using LM.Application.Persistence.Contracts;
 using LM.Domain;
 using MediatR;
 

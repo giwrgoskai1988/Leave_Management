@@ -1,4 +1,4 @@
-﻿using LM.Application.Persistence.Contracts;
+﻿using LM.Application.Contracts.Persistence;
 using LM.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;

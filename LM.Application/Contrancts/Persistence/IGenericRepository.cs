@@ -1,4 +1,4 @@
-﻿namespace LM.Application.Persistence.Contracts
+﻿namespace LM.Application.Contracts.Persistence
 {
     public interface IGenericRepository<T> where T : class
     {

@@ -1,6 +1,6 @@
 ﻿using LM.Domain;
 
-namespace LM.Application.Persistence.Contracts
+namespace LM.Application.Contracts.Persistence
 {
     public interface ILeaveRequestRepository : IGenericRepository<LeaveRequest>
     {
