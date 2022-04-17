@@ -1,5 +1,6 @@
 ﻿using LM.MVC.Contracts;
 using LM.MVC.Services;
+using LM.MVC.Services.Base;
 using System.Reflection;
 
 namespace LM.MVC
@@ -15,6 +16,7 @@ namespace LM.MVC
 
         public void ConfigureServices(IServiceCollection services)
         {
+            //set api to start with iss express
             services.AddHttpClient<IClient, Client>(cl => cl.BaseAddress = new Uri("https://localhost:44370"));
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
 

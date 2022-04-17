@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 using LM.Application.Contracts.Persistence;
 using LM.Application.DTOs.LeaveType;
-using LM.Application.Exceptions;
 using LM.Application.Features.LeaveTypes.Handlers.Commands;
 using LM.Application.Features.LeaveTypes.Requests.Commands;
 using LM.Application.Profiles;
+using LM.Application.Responses;
 using LM.UnitTests.Mocks;
 using Moq;
 using Shouldly;
@@ -47,7 +47,7 @@ namespace LM.UnitTests.LeaveTypes.Commands
 
             var leaveTypes = await _mockRepo.Object.GetAll();
 
-            result.ShouldBeOfType<int>();
+            result.ShouldBeOfType<BaseCommandResponse>();
 
             leaveTypes.Count.ShouldBe(3);
         }
@@ -57,16 +57,20 @@ namespace LM.UnitTests.LeaveTypes.Commands
         {
             var handler = new CreateLeaveTypeCommandHandler(_mockRepo.Object, _mapper);
 
-            ValidationException ex = await Should.ThrowAsync<ValidationException>(async () =>
-            {
-                await handler.Handle(new CreateLeaveTypeCommand() { LeaveTypeDto = new CreateLeaveTypeDto { DefaultDays = -23, Name = "" } }, CancellationToken.None);
-            });
+            //ValidationException ex = await Should.ThrowAsync<ValidationException>(async () =>
+            //{
+            //    await handler.Handle(new CreateLeaveTypeCommand() { LeaveTypeDto = new CreateLeaveTypeDto { DefaultDays = -23, Name = "" } }, CancellationToken.None);
+            //});
+
+            var result = await handler.Handle(new CreateLeaveTypeCommand() { LeaveTypeDto = new CreateLeaveTypeDto { DefaultDays = -23, Name = "" } }, CancellationToken.None);
 
             var leaveTypes = await _mockRepo.Object.GetAll();
 
             leaveTypes.Count.ShouldBe(2);
 
-            ex.ShouldNotBeNull();
+            result.ShouldBeOfType<BaseCommandResponse>();
+
+            result.Success.ShouldBe(false);
         }
     }
 }

@@ -19,11 +19,16 @@ namespace LM.Persistence
         {
             foreach (var entry in ChangeTracker.Entries<BaseDomainEntity>())
             {
-                entry.Entity.LastModifiedDate = DateTime.Now;
+                if (entry.State == EntityState.Modified)
+                {
+                    entry.Entity.LastModifiedDate = DateTime.Now;
+                    entry.Entity.LastModifiedBy = "SYSTEM";
+                }
 
                 if (entry.State == EntityState.Added)
                 {
                     entry.Entity.DateCreated = DateTime.Now;
+                    entry.Entity.CreatedBy = "SYSTEM";
                 }
             }
 

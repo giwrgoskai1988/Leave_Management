@@ -1,6 +1,7 @@
 ﻿using LM.Application.DTOs.LeaveType;
 using LM.Application.Features.LeaveTypes.Requests;
 using LM.Application.Features.LeaveTypes.Requests.Commands;
+using LM.Application.Responses;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -32,7 +33,9 @@ namespace LM.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] CreateLeaveTypeDto leaveType)
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        public async Task<ActionResult<BaseCommandResponse>> Post([FromBody] CreateLeaveTypeDto leaveType)
         {
             var response = await _mediator.Send(new CreateLeaveTypeCommand { LeaveTypeDto = leaveType });
 
@@ -40,6 +43,7 @@ namespace LM.Api.Controllers
         }
 
         [HttpPut("{id}")]
+        [ProducesResponseType(204)]
         public async Task<ActionResult> Put([FromBody] LeaveTypeDto leaveType)
         {
             await _mediator.Send(new UpdateLeaveTypeCommand { LeaveTypeDto = leaveType });
@@ -48,6 +52,7 @@ namespace LM.Api.Controllers
         }
 
         [HttpDelete("{id}")]
+        [ProducesResponseType(204)]
         public async Task<ActionResult> Delete(int id)
         {
             await _mediator.Send(new DeleteLeaveTypeCommand { Id = id });
