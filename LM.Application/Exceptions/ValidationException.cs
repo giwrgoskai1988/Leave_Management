@@ -8,6 +8,8 @@ namespace LM.Application.Exceptions
 
         public ValidationException(ValidationResult validationResult)
         {
+            Errors = new List<string>();
+
             foreach (var error in validationResult.Errors)
             {
                 Errors.Add(error.ErrorMessage);
