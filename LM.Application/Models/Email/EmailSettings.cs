@@ -1,4 +1,4 @@
-﻿namespace LM.Application.Models
+﻿namespace LM.Application.Models.Email
 {
     public class EmailSettings
     {

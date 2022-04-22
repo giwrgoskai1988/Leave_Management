@@ -1,4 +1,4 @@
-﻿using LM.Application.Models;
+﻿using LM.Application.Models.Email;
 
 namespace LM.Application.Contrancts.Infrastructure
 {
