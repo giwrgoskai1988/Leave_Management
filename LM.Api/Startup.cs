@@ -61,7 +61,7 @@ namespace LM.Api
             });
         }
 
-        void AddSwaggerDoc(IServiceCollection services)
+        private void AddSwaggerDoc(IServiceCollection services)
         {
             services.AddSwaggerGen(c =>
             {

@@ -2,6 +2,7 @@
 using LM.Application.Features.LeaveAllocation.Requests.Commands;
 using LM.Application.Features.LeaveAllocation.Requests.Queries;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -9,6 +10,7 @@ namespace LM.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class LeaveAllocationsController : ControllerBase
     {
 

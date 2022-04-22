@@ -3,12 +3,14 @@ using LM.Application.Features.LeaveTypes.Requests;
 using LM.Application.Features.LeaveTypes.Requests.Commands;
 using LM.Application.Responses;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LM.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class LeaveTypesController : ControllerBase
     {
         private readonly IMediator _mediator;
