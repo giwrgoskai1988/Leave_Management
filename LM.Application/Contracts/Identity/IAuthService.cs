@@ -1,6 +1,6 @@
 ﻿using LM.Application.Models.Identity;
 
-namespace LM.Application.Contrancts.Identity
+namespace LM.Application.Contracts.Identity
 {
     public interface IAuthService
     {

@@ -1,5 +1,5 @@
-﻿using LM.Application.Contrancts.Infrastructure;
-using LM.Application.Models;
+﻿using LM.Application.Contracts.Infrastructure;
+using LM.Application.Models.Email;
 using LM.Infrastructure.Mail;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

@@ -1,6 +1,6 @@
 ﻿using LM.Application.Models.Email;
 
-namespace LM.Application.Contrancts.Infrastructure
+namespace LM.Application.Contracts.Infrastructure
 {
     public interface IEmailSender
     {

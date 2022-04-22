@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
+using LM.Application.Contracts.Infrastructure;
 using LM.Application.Contracts.Persistence;
-using LM.Application.Contrancts.Infrastructure;
 using LM.Application.DTOs.LeaveRequest.Validators;
 using LM.Application.Features.LeaveRequests.Requests.Commands;
 using LM.Application.Models.Email;
